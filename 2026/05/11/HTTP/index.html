@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>HTTP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="HTTP基础HHTP整体流程当访问一个网站时，背后发生： 1234567浏览器、网页爬虫   ↓ 发送HTTP请求(Request)服务器   ↓ 返回HTTP响应(Response)浏览器解析响应内容   ↓页面显示  也可以理解为： 1浏览器 -&gt; 请求 -&gt; 服务器处理 -&gt; 响应 -&gt; 浏览器解析  什么是HTTP（超文本传输协议）作用：由于浏览器和服务器之间的数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP">
+<meta property="og:url" content="http://example.com/2026/05/11/HTTP/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HTTP基础HHTP整体流程当访问一个网站时，背后发生： 1234567浏览器、网页爬虫   ↓ 发送HTTP请求(Request)服务器   ↓ 返回HTTP响应(Response)浏览器解析响应内容   ↓页面显示  也可以理解为： 1浏览器 -&gt; 请求 -&gt; 服务器处理 -&gt; 响应 -&gt; 浏览器解析  什么是HTTP（超文本传输协议）作用：由于浏览器和服务器之间的数据">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-11T15:45:43.000Z">
+<meta property="article:modified_time" content="2026-05-11T21:53:18.520Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,9 +73,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-HTTP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-HTTP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/05/11/HTTP/" class="article-date">
   <time class="dt-published" datetime="2026-05-11T15:45:43.000Z" itemprop="datePublished">2026-05-11</time>
@@ -84,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/11/HTTP/">HTTP</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      HTTP
     </h1>
   
 
@@ -196,248 +198,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-SQL基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/10/SQL%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time class="dt-published" datetime="2026-05-10T13:35:10.000Z" itemprop="datePublished">2026-05-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/10/SQL%E5%9F%BA%E7%A1%80/">SQL基础</a>
-    </h1>
+    <a href="/2026/05/10/SQL%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SQL基础</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><h2 id="什么是SQL注入"><a href="#什么是SQL注入" class="headerlink" title="什么是SQL注入"></a>什么是SQL注入</h2><p>SQL注入：</p>
-<blockquote>
-<p>通过拼接恶意SQL语句，从而操控数据库。</p>
-</blockquote>
-<hr>
-<h2 id="SQL基础"><a href="#SQL基础" class="headerlink" title="SQL基础"></a>SQL基础</h2><h3 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users;</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>查询 users 表中的所有数据。</p>
-<hr>
-<h3 id="什么是where"><a href="#什么是where" class="headerlink" title="什么是where"></a>什么是where</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>查询 id&#x3D;1 的数据。</p>
-<hr>
-<h3 id="and和or（or为核心之一）"><a href="#and和or（or为核心之一）" class="headerlink" title="and和or（or为核心之一）"></a>and和or（or为核心之一）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span> <span class="keyword">and</span> username<span class="operator">=</span><span class="string">&#x27;admin&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>两个条件都满足</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span> <span class="keyword">or</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>只要一个条件成立即可</p>
-<hr>
-<h2 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h2><p>后端代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;select * from users where id=&#x27;<span class="subst">$id</span>&#x27;&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>输入：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27; or 1=1 #</span></span><br></pre></td></tr></table></figure>
-
-<p>拼接后：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">where</span> id<span class="operator">=</span><span class="string">&#x27;1&#x27;</span> <span class="keyword">or</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span> #<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="为什么成功"><a href="#为什么成功" class="headerlink" title="为什么成功"></a>为什么成功</h3><p>因为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>恒成立。</p>
-<h3 id="为什么’很重要"><a href="#为什么’很重要" class="headerlink" title="为什么’很重要"></a>为什么’很重要</h3><p>因为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>可以结束字符串；</p>
-<hr>
-<h2 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h2><p>注释&#x3D;后面语句不执行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># </span><br><span class="line"><span class="comment">--+</span></span><br></pre></td></tr></table></figure>
-
-<p>作用：把后面的内容注释掉</p>
-<hr>
-<h2 id="什么是union-select"><a href="#什么是union-select" class="headerlink" title="什么是union select"></a>什么是union select</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>,<span class="number">4</span>;</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>拼接两个查询结果。</p>
-<p>使用原因：<br>将原本查询的数据，拼接到原本的页面中；</p>
-<hr>
-<h2 id="如何判断字段数"><a href="#如何判断字段数" class="headerlink" title="如何判断字段数"></a>如何判断字段数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>正常。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<p>正常。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<p>报错。</p>
-<p>说明：</p>
-<p>字段数为2。</p>
-<hr>
-<h2 id="什么是回显位"><a href="#什么是回显位" class="headerlink" title="什么是回显位"></a>什么是回显位</h2><p>输入：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<p>页面显示：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<p>第二列会显示到页面。</p>
-<p>因此：</p>
-<p>第二列是回显位。</p>
-<p>我的理解：<br>回显位为数据库查询结果中，最终可以显示到网页上的为止</p>
-<hr>
-<h2 id="数据库结构概念"><a href="#数据库结构概念" class="headerlink" title="数据库结构概念"></a>数据库结构概念</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库</span><br><span class="line"> └── 表（table）</span><br><span class="line">      └── 字段（column）</span><br><span class="line">      └── 数据（row）</span><br></pre></td></tr></table></figure>
-
-<p>例如：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id   username   password</span><br><span class="line">1    admin      123456</span><br></pre></td></tr></table></figure>
-<p>其中</p>
-<ul>
-<li>user  –&gt;table</li>
-<li>id    –&gt;column</li>
-<li>admin –&gt;row</li>
-</ul>
-<hr>
-<h2 id="数据库函数"><a href="#数据库函数" class="headerlink" title="数据库函数"></a>数据库函数</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">database()</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>获取当前数据库名称</p>
-<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">user</span>()</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>获取当前数据库用户</p>
-<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">version()</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<p>获取MySQL版本</p>
-<hr>
-<h2 id="今日收获"><a href="#今日收获" class="headerlink" title="今日收获"></a>今日收获</h2><p>今天理解了：</p>
-<ul>
-<li>SQL如何执行（成功原因，注释符）</li>
-<li>union的作用以及使用原因</li>
-<li>为什么要判断字段数</li>
-<li>什么是回显位</li>
-<li>数据库结构和函数</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/10/SQL%E5%9F%BA%E7%A1%80/" data-id="cuidqNpqI3x72RgPxVep4IhVe" data-title="SQL基础" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-我的第一篇博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time class="dt-published" datetime="2026-05-10T12:00:48.000Z" itemprop="datePublished">2026-05-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h1><p>这是我的第一篇博客<br>—c<br>#include &lt;stdio.h&gt;<br>int main()<br>{<br>    printf(“hello”);<br>}</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="cuidFSO39-PcrvBdQB7ahfdda" data-title="我的第一篇博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/10/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-05-10T11:55:45.178Z" itemprop="datePublished">2026-05-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/10/hello-world/" data-id="cuidCYr25H_k_IqwnubCU_nB1" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
