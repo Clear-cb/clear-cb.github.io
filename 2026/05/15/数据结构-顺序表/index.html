@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据结构--顺序表 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据结构—顺序表什么是顺序表（理解）定义：线性结构，用一块连续的储存空间按照顺序存放数据的线性结构； 理解：一排连续编号的位置 为什么需要顺序表（解决什么问题）1.方便整理查找（按位查找）2.给一排位置排序并确定每个位置的观众 结构定义123456789typedef struct&#123;    datatype data[maxsize];    int length;&#125;seque">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构--顺序表">
+<meta property="og:url" content="http://example.com/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据结构—顺序表什么是顺序表（理解）定义：线性结构，用一块连续的储存空间按照顺序存放数据的线性结构； 理解：一排连续编号的位置 为什么需要顺序表（解决什么问题）1.方便整理查找（按位查找）2.给一排位置排序并确定每个位置的观众 结构定义123456789typedef struct&#123;    datatype data[maxsize];    int length;&#125;seque">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-15T15:12:31.000Z">
+<meta property="article:modified_time" content="2026-05-16T06:39:14.746Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-数据结构-顺序表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2026-05-15T15:12:31.000Z" itemprop="datePublished">2026-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据结构--顺序表
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据结构—顺序表"><a href="#数据结构—顺序表" class="headerlink" title="数据结构—顺序表"></a>数据结构—顺序表</h1><h2 id="什么是顺序表（理解）"><a href="#什么是顺序表（理解）" class="headerlink" title="什么是顺序表（理解）"></a>什么是顺序表（理解）</h2><p>定义：线性结构，用一块连续的储存空间按照顺序存放数据的线性结构；</p>
+<p>理解：一排连续编号的位置</p>
+<h2 id="为什么需要顺序表（解决什么问题）"><a href="#为什么需要顺序表（解决什么问题）" class="headerlink" title="为什么需要顺序表（解决什么问题）"></a>为什么需要顺序表（解决什么问题）</h2><p>1.方便整理查找（按位查找）<br>2.给一排位置排序并确定每个位置的观众</p>
+<h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    datatype data[maxsize];</span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line">&#125;sequenlist; </span><br><span class="line"></span><br><span class="line">data：存放数据</span><br><span class="line"></span><br><span class="line">length：当前顺序表长度</span><br></pre></td></tr></table></figure>
+
+<p>该结构体中主要包含两点:</p>
+<ul>
+<li>数据</li>
+<li>数据长度（length）</li>
+</ul>
+<h2 id="核心操作"><a href="#核心操作" class="headerlink" title="核心操作"></a>核心操作</h2><ul>
+<li>创建</li>
+<li>插入</li>
+<li>删除</li>
+<li>查找</li>
+<li>修改</li>
+</ul>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- 插入：判满</span><br><span class="line">- 删除：判空</span><br><span class="line">- 合并</span><br><span class="line"></span><br><span class="line">注意：边界很重要；</span><br><span class="line">必须考虑空，满，越界，非法位置； </span><br></pre></td></tr></table></figure>
+
+<h2 id="我的理解"><a href="#我的理解" class="headerlink" title="我的理解"></a>我的理解</h2><h3 id="顺序表的应用场景："><a href="#顺序表的应用场景：" class="headerlink" title="顺序表的应用场景："></a>顺序表的应用场景：</h3><ul>
+<li>数组的应用</li>
+<li>成绩管理，通讯录</li>
+<li>栈和队列的底层逻辑</li>
+</ul>
+<p>适用原因（其优点）：</p>
+<p>1.可随机访问<br>2.连续存储的方式<br>3.实现简单</p>
+<h3 id="不适合什么："><a href="#不适合什么：" class="headerlink" title="不适合什么："></a>不适合什么：</h3><p>会有频繁的插入删除（数据变动）<br>原因：需要移动大量数据；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/" data-id="cuidwZulyqdx0I15BHYuRn_y8" data-title="数据结构--顺序表" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/05/11/HTTP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTTP</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">May 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/">数据结构--顺序表</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/11/HTTP/">HTTP</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/10/SQL%E5%9F%BA%E7%A1%80/">SQL基础</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/10/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

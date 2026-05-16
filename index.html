@@ -71,6 +71,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据结构-顺序表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2026-05-15T15:12:31.000Z" itemprop="datePublished">2026-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/">数据结构--顺序表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据结构—顺序表"><a href="#数据结构—顺序表" class="headerlink" title="数据结构—顺序表"></a>数据结构—顺序表</h1><h2 id="什么是顺序表（理解）"><a href="#什么是顺序表（理解）" class="headerlink" title="什么是顺序表（理解）"></a>什么是顺序表（理解）</h2><p>定义：线性结构，用一块连续的储存空间按照顺序存放数据的线性结构；</p>
+<p>理解：一排连续编号的位置</p>
+<h2 id="为什么需要顺序表（解决什么问题）"><a href="#为什么需要顺序表（解决什么问题）" class="headerlink" title="为什么需要顺序表（解决什么问题）"></a>为什么需要顺序表（解决什么问题）</h2><p>1.方便整理查找（按位查找）<br>2.给一排位置排序并确定每个位置的观众</p>
+<h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    datatype data[maxsize];</span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line">&#125;sequenlist; </span><br><span class="line"></span><br><span class="line">data：存放数据</span><br><span class="line"></span><br><span class="line">length：当前顺序表长度</span><br></pre></td></tr></table></figure>
+
+<p>该结构体中主要包含两点:</p>
+<ul>
+<li>数据</li>
+<li>数据长度（length）</li>
+</ul>
+<h2 id="核心操作"><a href="#核心操作" class="headerlink" title="核心操作"></a>核心操作</h2><ul>
+<li>创建</li>
+<li>插入</li>
+<li>删除</li>
+<li>查找</li>
+<li>修改</li>
+</ul>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- 插入：判满</span><br><span class="line">- 删除：判空</span><br><span class="line">- 合并</span><br><span class="line"></span><br><span class="line">注意：边界很重要；</span><br><span class="line">必须考虑空，满，越界，非法位置； </span><br></pre></td></tr></table></figure>
+
+<h2 id="我的理解"><a href="#我的理解" class="headerlink" title="我的理解"></a>我的理解</h2><h3 id="顺序表的应用场景："><a href="#顺序表的应用场景：" class="headerlink" title="顺序表的应用场景："></a>顺序表的应用场景：</h3><ul>
+<li>数组的应用</li>
+<li>成绩管理，通讯录</li>
+<li>栈和队列的底层逻辑</li>
+</ul>
+<p>适用原因（其优点）：</p>
+<p>1.可随机访问<br>2.连续存储的方式<br>3.实现简单</p>
+<h3 id="不适合什么："><a href="#不适合什么：" class="headerlink" title="不适合什么："></a>不适合什么：</h3><p>会有频繁的插入删除（数据变动）<br>原因：需要移动大量数据；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/" data-id="cuidwZulyqdx0I15BHYuRn_y8" data-title="数据结构--顺序表" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-HTTP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/05/11/HTTP/" class="article-date">
@@ -100,7 +165,7 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器 -&gt; 请求 -&gt; 服务器处理 -&gt; 响应 -&gt; 浏览器解析</span><br><span class="line">注：HTTP本质上是采取一问一答模式</span><br><span class="line">一个网页可能会产生上百个HTTP请求</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="什么是HTTP（超文本传输协议）"><a href="#什么是HTTP（超文本传输协议）" class="headerlink" title="什么是HTTP（超文本传输协议）"></a>什么是HTTP（超文本传输协议）</h2><p>作用：用于浏览器和服务器之间传输数据的协议</p>
+<h2 id="什么是HTTP（超文本传输协议）"><a href="#什么是HTTP（超文本传输协议）" class="headerlink" title="什么是HTTP（超文本传输协议）"></a>什么是HTTP（超文本传输协议）</h2><p>作用：用于浏览器和服务器之间传输数据的协议<br>一种应用层协议，通过TCP&#x2F;TLS（一种加密过的TCP连接）来发送；</p>
 <p>例如：</p>
 <ul>
 <li>打开网页</li>
@@ -108,7 +173,9 @@
 <li>提交表格…</li>
 </ul>
 <hr>
-<h2 id="一次访问网页发生了什么？-这里的客户端为浏览器"><a href="#一次访问网页发生了什么？-这里的客户端为浏览器" class="headerlink" title="一次访问网页发生了什么？(这里的客户端为浏览器)"></a>一次访问网页发生了什么？(这里的客户端为浏览器)</h2><h3 id="浏览器发送请求"><a href="#浏览器发送请求" class="headerlink" title="浏览器发送请求"></a>浏览器发送请求</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"></span><br><span class="line"><span class="language-avrasm"><span class="symbol">Host:</span> baidu.com</span></span><br></pre></td></tr></table></figure>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="基于HTTP的系统组成"><a href="#基于HTTP的系统组成" class="headerlink" title="基于HTTP的系统组成"></a>基于HTTP的系统组成</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- 客户端：用户代理（代表用户行为的工具）</span><br><span class="line">为了展现一个网页：</span><br><span class="line">--&gt; 发送最初请求获取描述这个页面的HTML文档</span><br><span class="line">--&gt; 解析文档，并发送无数个请求</span><br><span class="line">--&gt; 获得相应的可执行脚本，CSS，以及其他可执行的子资源</span><br><span class="line">--&gt; 浏览器会不断解析并加载资源，最终逐步完成网页渲染</span><br><span class="line"></span><br><span class="line">-web服务器：提供客户端所请求的文档</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="一次访问网页发生了什么？-这里的客户端为浏览器-—具体内容"><a href="#一次访问网页发生了什么？-这里的客户端为浏览器-—具体内容" class="headerlink" title="一次访问网页发生了什么？(这里的客户端为浏览器)—具体内容"></a>一次访问网页发生了什么？(这里的客户端为浏览器)—具体内容</h2><h3 id="浏览器发送请求"><a href="#浏览器发送请求" class="headerlink" title="浏览器发送请求"></a>浏览器发送请求</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"></span><br><span class="line"><span class="language-avrasm"><span class="symbol">Host:</span> baidu.com</span></span><br></pre></td></tr></table></figure>
 
 <p>解析：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GET:请求方法（我需要获取数据）</span><br><span class="line"></span><br><span class="line">/：请求路径（我要访问网站的根目录）</span><br><span class="line"></span><br><span class="line">HTTP/1.1：所使用的HTTP协议的版本</span><br><span class="line"></span><br><span class="line">第二行：访问的网站为baidu.com</span><br></pre></td></tr></table></figure>
@@ -486,6 +553,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/">数据结构--顺序表</a>
+          </li>
         
           <li>
             <a href="/2026/05/11/HTTP/">HTTP</a>
