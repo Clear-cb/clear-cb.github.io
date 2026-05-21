@@ -220,38 +220,56 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h2 id="本质思考"><a href="#本质思考" class="headerlink" title="本质思考"></a>本质思考</h2><ul>
-<li><p>为什么顺序表查询快？<br>答：拥有下标，可通过此快速查找；</p>
+<li><p>为什么顺序表查询快？<br>答：拥有下标，可通过计算快速查找；<br>（连续存储，可以通过“起始地址+下标偏移”计算）；</p>
 </li>
-<li><p>为什么顺序表必须连续存储？<br>答：由于我的下标是不断加一进行编号，如果未连续存储就会导致读出的数据不符合数据的编号；</p>
+<li><p>为什么顺序表必须连续存储？<br>答：顺序表是通过下标来计算元素位置的，如果空间不连续，则不能通过简单的计算来访问该元素</p>
 </li>
 </ul>
-<p>注：读出数据的本质就是在读到该节点后，往后跳一格继续读取；</p>
+<p>注：读出数据的本质就是在读到该节点后，进行地址偏移从而访问下一个元素；</p>
 <ul>
-<li><p>如果空间不连续会发生什么？<br>答：此外也可能会导致无法找到该节点的下一个节点；</p>
+<li><p>如果空间不连续会发生什么？<br>答：此外也可能会导致无法找到该节点的下一个元素；</p>
 </li>
-<li><p>为什么插入删除慢？<br>答：由于插入删除特定位置，从第i+1个节点开始，需要不断移动该节点后面数据的位置，（原因：保持顺序表的连续性）</p>
+<li><p>为什么插入删除慢？<br>答：由于插入删除特定位置，从第i+1个节点开始，需要不断移动该元素后面数据的位置，（原因：保持顺序表的连续性）</p>
 </li>
-<li><p>为什么尾插比头插快？<br>答：尾插只需要在最后接上一个节点，头插则是在第一个位置插入数据，由于顺序表的连续存储，导致前面并无位置可以直接插入，需要移动所有节点向后一位，故尾插比头插快；<br>（注：尾插的时间复杂度为1，头插的时间复杂度为O（n））；</p>
+<li><p>为什么尾插比头插快？<br>答：尾插只需要在最后接上一个节点，头插则是在第一个位置插入数据，由于顺序表的连续存储，导致前面并无位置可以直接插入，需要移动所有节点向后一位，故尾插比头插快；<br>（注：尾插的平均时间复杂度为1，头插的时间复杂度为O（n））；</p>
 </li>
 </ul>
 <h2 id="设计思考"><a href="#设计思考" class="headerlink" title="设计思考"></a>设计思考</h2><ul>
 <li><p>length为什么需要单独存在？<br>答：告诉我们该顺序表有多长，便于插入删除数据时的判断，同时也保证空间的合理性；</p>
 </li>
-<li><p>在存储时，有两种maxsize和capacity,区别和作用？<br>答：maxsize是固定容量&#x2F;长度（静态存储）；<br>capacity是可变化的长度&#x2F;容量（动态存储）；</p>
+<li><p>在存储时，有两种maxsize和capacity,区别和作用？<br>答：maxsize是固定容量（静态存储）；<br>capacity是当前空间的容量（动态存储）；<br>length是当前长度；</p>
 </li>
 </ul>
 <p>（注：如使用define maxsize 1024–&gt;则空间大小已经固定；<br>如使用a&#x3D;…malloc…，则为动态储存状态；）</p>
-<p>使用capacity原因：节省空间</p>
+<p>使用capacity原因：可以根据规模自动扩容，避免一开始申请过大空间而造成浪费</p>
 <ul>
-<li><p>为什么扩容？<br>答：空间不足问题；</p>
+<li><p>为什么扩容？<br>答：由于数组要求连续存储，当该空间已满时，后续的内存不一定可用，所以需要申请更大的连续空间；<br>扩容的本质为重新申请一块更大的空间</p>
 </li>
-<li><p>为什么扩容通常为2倍，且代价大？<br>答：</p>
+<li><p>为什么扩容通常为2倍，且代价大？<br>答：代价大由于，每一次扩容，都需要将原来的数据照搬至新的内存空间中（连续存储）；<br>2倍：在大多数情况下，都是直接插入赋值，只有个别数据插入时很贵（时间复杂度高），但是均摊下来，均摊时间复杂度为O（1）；<br>（注：不过还是具体情况具体分析，2倍只适用于大多数情况下）；</p>
 </li>
 </ul>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
-<li><p>为什么下标从0开始？<br>答：</p>
+<h2 id="代码实施时思考"><a href="#代码实施时思考" class="headerlink" title="代码实施时思考"></a>代码实施时思考</h2><ul>
+<li><p>为什么下标从0开始？<br>答：类似于偏移量；<br>eg：地址–&gt;1000,1004,1008,1012…<br>则下标为n的节点开始地址为：1000+n*4；<br>（可见计算相对简单一些）；</p>
 </li>
-<li><p>为什么要防止越界？</p>
+<li><p>为什么要防止越界？<br>答：越界的本质就是访问了不属于当前数组的内存区域；<br>后果：数据错乱，程序崩溃，安全漏洞…<br>（注意：c语言默认不检查越界，该顺序表要着重注意的原因为—数组构成，需要连续内存）</p>
+</li>
+<li><p>为什么删除元素后不一定真正清空内存？<br>答：因为仅仅是该元素并不在这个顺序表里面，而不是将其从内存中清除了<br>（注：逻辑删除 vs 物理删除，仅仅是length的变化，原数据可能仍然保留在内存中）</p>
+</li>
+</ul>
+<h2 id="实际应用思考"><a href="#实际应用思考" class="headerlink" title="实际应用思考"></a>实际应用思考</h2><ul>
+<li><p>为什么vector的底层是顺序表？<br>答：对于vector来说，相当于自动扩容的顺序表，我通过push_back放入数据，当数据满了，就扩容，查找也参照顺序表的地址查找方式（下标）；</p>
+</li>
+<li><p>为什么python list的本质也是动态数组？<br>答：例如a&#x3D;[1,2,3]<br>以上为一个list，同样通过a.append(4)，来增加数据；</p>
+</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python list里面的数据数据类型可以不同</span><br><span class="line">原因:其中所存储的为该元素的指针</span><br><span class="line"></span><br><span class="line">c数组中不可以</span><br><span class="line">原因：存储的数据本身</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vector or python list的本质</span><br><span class="line">自动扩容数组</span><br><span class="line">省略了以下：</span><br><span class="line">malloc</span><br><span class="line">free</span><br><span class="line">capacity</span><br><span class="line">扩容</span><br><span class="line">判满</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>什么场景适合顺序表？<br>答：需要随机频繁查找数据，尾插较多；</p>
+</li>
+<li><p>什么场景不合适？<br>答：需要中间和头部频繁删除，插入数据</p>
 </li>
 </ul>
 
