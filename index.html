@@ -71,6 +71,122 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据结构-链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2026-05-21T06:49:06.000Z" itemprop="datePublished">2026-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/">数据结构-链表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本质思考"><a href="#本质思考" class="headerlink" title="本质思考"></a>本质思考</h2><ul>
+<li>链表为什么不需要连续空间？</li>
+</ul>
+<p>答：链表的节点之间通过指针连接，每个节点的指针域只需要保存下一个节点的地址，因此节点本身不需要连续存储；</p>
+<ul>
+<li>next指针到底是什么？</li>
+</ul>
+<p>答：所指的为下一个节点的地址<br>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">节点A的地址：2000；</span><br><span class="line">节点B的地址：1000；</span><br><span class="line"></span><br><span class="line">A-&gt;next=2000；</span><br><span class="line">表示：A的next指针保存了B的地址；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么链表的查询慢？</li>
+</ul>
+<p>答：由于数据的存储不是连续存储，所以在查询时，需要遍历链表才能找到我所查询的数据，时间复杂度为O（n）；</p>
+<ul>
+<li>为什么链表插入快？</li>
+</ul>
+<p>答：对于链表来说，插入是找到插入点后，修改指针即可；</p>
+<h2 id="结构思考"><a href="#结构思考" class="headerlink" title="结构思考"></a>结构思考</h2><ul>
+<li>为什么需要头结点？</li>
+</ul>
+<p>答：不忘初心，由头节点才能找到链表的开始，从而根据每个节点的指针域找到后一个节点；</p>
+<ul>
+<li>没有头节点会怎么样？</li>
+</ul>
+<p>答：如果无头节点，则无法找到链表的开端，导致链表的不完整；</p>
+<ul>
+<li>为什么尾插常常需要遍历？</li>
+</ul>
+<p>答：需要找到插入点的位置<br>原因：在链表中，指针域存储的是地址，我们并不知道其在链表中的第几个位置，所以需要遍历链表来找到该插入点；</p>
+<ul>
+<li>双链表为什么更方便？</li>
+</ul>
+<p>答：对于双链表来说，如果知道其中一个节点就可以推得整个链表；</p>
+<p>缺点：牺牲了一定的空间；</p>
+<ul>
+<li>循环链表解决了什么问题？</li>
+</ul>
+<p>答：可以由一个节点推得整个链表，并且空间占用和单链表相差无几；</p>
+<h2 id="指针思考"><a href="#指针思考" class="headerlink" title="指针思考"></a>指针思考</h2><ul>
+<li>为什么很多链表问题的本质是“指针移动”？</li>
+</ul>
+<p>答：由于链表是通过指针域所存储的地址而连接的，所以对于链表来说，指针作为一个“线索”，围绕线索构成了指针；</p>
+<ul>
+<li>为什么容易丢链？</li>
+</ul>
+<p>答：对于插入来说，不仅需要接上该位置后面的节点，还需要和前面的衔接；</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">很重要的一点是，在插入时：</span><br><span class="line">必须先接该节点后面的节点（变动指针）</span><br><span class="line">再衔接前面的节点；</span><br><span class="line"></span><br><span class="line">原因：如果先接前面的，会导致后续的节点丢失；</span><br><span class="line">因为前节点的指针域存储的是后节点的地址，在连接的过程中我已经修改了指针域，导致后节点的地址丢失；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么修改顺序很重要？</li>
+</ul>
+<p>答：例如以下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在链表（部分）p---&gt;q之间插入b；</span><br><span class="line">代码：</span><br><span class="line">b-&gt;next=p-&gt;next;</span><br><span class="line">p-&gt;next=b;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><ul>
+<li>为什么操作系统喜欢链表？（注意：并非只使用链表，而是混合使用数结构）</li>
+</ul>
+<p>答：操作系统频繁处理的事情：<br>创建&#x2F;销毁进程，挂起，唤醒，分配资源，回收资源</p>
+<p>其本质皆为频繁的增删活动；</p>
+<p>1.操作系统的数据量巨大，不适合整体移动（运用顺序表），代价太高，使用链表删除的时间复杂度为O（1）；<br>2.操作系统管理的是整个内存，而内存常常是碎片化的，很难找到一块连续的很大的空间，因此使用链表可以规避这类问题；</p>
+<ul>
+<li>为什么哈希冲突常用链表？</li>
+</ul>
+<p>答：<br>1.解析什么事哈希冲突？</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">哈希表10个位置</span><br><span class="line">0 1 2 3 4 5 6 7 8 9</span><br><span class="line"></span><br><span class="line">现在：</span><br><span class="line">hash(A)=3;</span><br><span class="line">hash(B)=3;</span><br><span class="line">此时两个数据都想要放到位置3，必然会导致冲突；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2.冲突的本质原因？</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">数据无限多；</span><br><span class="line">但是数组空间有限个；</span><br><span class="line">例如：字符串无限个----&gt;哈希表1024个桶；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解决方案：拉链法（其中一个解决方案，并非最佳）</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">原来：3-&gt;A</span><br><span class="line"></span><br><span class="line">冲突后：3-&gt;A-&gt;B</span><br><span class="line"></span><br><span class="line">再次冲突：3-&gt;A-&gt;B-&gt;C</span><br><span class="line"></span><br><span class="line">本质：在其中一个桶后面再挂一条链表；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3.使用链表的原因：链表适合动态增加元素；</p>
+<ul>
+<li>为什么浏览器前进后退可以用双链表？</li>
+</ul>
+<p>答：由于浏览器的前进后退需要能找到前后页面的信息，而双链表可以实现此（前指针域可找到上一个页面的信息，而后指针域则可以找到下一个页面）；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/" data-id="cuidtbz7AKIpfJZGjGiDf-bYg" data-title="数据结构-链表" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-数据结构问题思考方向" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/05/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91/" class="article-date">
@@ -806,6 +922,10 @@
       <ul>
         
           <li>
+            <a href="/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/">数据结构-链表</a>
+          </li>
+        
+          <li>
             <a href="/2026/05/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91/">数据结构问题思考方向</a>
           </li>
         
@@ -819,10 +939,6 @@
         
           <li>
             <a href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/">数据结构--顺序表</a>
-          </li>
-        
-          <li>
-            <a href="/2026/05/11/HTTP/">HTTP</a>
           </li>
         
       </ul>

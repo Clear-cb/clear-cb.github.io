@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据结构-链表 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本质思考 链表为什么不需要连续空间？  答：链表的节点之间通过指针连接，每个节点的指针域只需要保存下一个节点的地址，因此节点本身不需要连续存储；  next指针到底是什么？  答：所指的为下一个节点的地址例如： 12345节点A的地址：2000；节点B的地址：1000；A-&gt;next&#x3D;2000；表示：A的next指针保存了B的地址；   为什么链表的查询慢？  答：由于数据的存储不是连续存储">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构-链表">
+<meta property="og:url" content="http://example.com/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本质思考 链表为什么不需要连续空间？  答：链表的节点之间通过指针连接，每个节点的指针域只需要保存下一个节点的地址，因此节点本身不需要连续存储；  next指针到底是什么？  答：所指的为下一个节点的地址例如： 12345节点A的地址：2000；节点B的地址：1000；A-&gt;next&#x3D;2000；表示：A的next指针保存了B的地址；   为什么链表的查询慢？  答：由于数据的存储不是连续存储">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-21T06:49:06.000Z">
+<meta property="article:modified_time" content="2026-05-21T08:48:33.451Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-数据结构-链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2026-05-21T06:49:06.000Z" itemprop="datePublished">2026-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据结构-链表
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本质思考"><a href="#本质思考" class="headerlink" title="本质思考"></a>本质思考</h2><ul>
+<li>链表为什么不需要连续空间？</li>
+</ul>
+<p>答：链表的节点之间通过指针连接，每个节点的指针域只需要保存下一个节点的地址，因此节点本身不需要连续存储；</p>
+<ul>
+<li>next指针到底是什么？</li>
+</ul>
+<p>答：所指的为下一个节点的地址<br>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">节点A的地址：2000；</span><br><span class="line">节点B的地址：1000；</span><br><span class="line"></span><br><span class="line">A-&gt;next=2000；</span><br><span class="line">表示：A的next指针保存了B的地址；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么链表的查询慢？</li>
+</ul>
+<p>答：由于数据的存储不是连续存储，所以在查询时，需要遍历链表才能找到我所查询的数据，时间复杂度为O（n）；</p>
+<ul>
+<li>为什么链表插入快？</li>
+</ul>
+<p>答：对于链表来说，插入是找到插入点后，修改指针即可；</p>
+<h2 id="结构思考"><a href="#结构思考" class="headerlink" title="结构思考"></a>结构思考</h2><ul>
+<li>为什么需要头结点？</li>
+</ul>
+<p>答：不忘初心，由头节点才能找到链表的开始，从而根据每个节点的指针域找到后一个节点；</p>
+<ul>
+<li>没有头节点会怎么样？</li>
+</ul>
+<p>答：如果无头节点，则无法找到链表的开端，导致链表的不完整；</p>
+<ul>
+<li>为什么尾插常常需要遍历？</li>
+</ul>
+<p>答：需要找到插入点的位置<br>原因：在链表中，指针域存储的是地址，我们并不知道其在链表中的第几个位置，所以需要遍历链表来找到该插入点；</p>
+<ul>
+<li>双链表为什么更方便？</li>
+</ul>
+<p>答：对于双链表来说，如果知道其中一个节点就可以推得整个链表；</p>
+<p>缺点：牺牲了一定的空间；</p>
+<ul>
+<li>循环链表解决了什么问题？</li>
+</ul>
+<p>答：可以由一个节点推得整个链表，并且空间占用和单链表相差无几；</p>
+<h2 id="指针思考"><a href="#指针思考" class="headerlink" title="指针思考"></a>指针思考</h2><ul>
+<li>为什么很多链表问题的本质是“指针移动”？</li>
+</ul>
+<p>答：由于链表是通过指针域所存储的地址而连接的，所以对于链表来说，指针作为一个“线索”，围绕线索构成了指针；</p>
+<ul>
+<li>为什么容易丢链？</li>
+</ul>
+<p>答：对于插入来说，不仅需要接上该位置后面的节点，还需要和前面的衔接；</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">很重要的一点是，在插入时：</span><br><span class="line">必须先接该节点后面的节点（变动指针）</span><br><span class="line">再衔接前面的节点；</span><br><span class="line"></span><br><span class="line">原因：如果先接前面的，会导致后续的节点丢失；</span><br><span class="line">因为前节点的指针域存储的是后节点的地址，在连接的过程中我已经修改了指针域，导致后节点的地址丢失；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么修改顺序很重要？</li>
+</ul>
+<p>答：例如以下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在链表（部分）p---&gt;q之间插入b；</span><br><span class="line">代码：</span><br><span class="line">b-&gt;next=p-&gt;next;</span><br><span class="line">p-&gt;next=b;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><ul>
+<li>为什么操作系统喜欢链表？（注意：并非只使用链表，而是混合使用数结构）</li>
+</ul>
+<p>答：操作系统频繁处理的事情：<br>创建&#x2F;销毁进程，挂起，唤醒，分配资源，回收资源</p>
+<p>其本质皆为频繁的增删活动；</p>
+<p>1.操作系统的数据量巨大，不适合整体移动（运用顺序表），代价太高，使用链表删除的时间复杂度为O（1）；<br>2.操作系统管理的是整个内存，而内存常常是碎片化的，很难找到一块连续的很大的空间，因此使用链表可以规避这类问题；</p>
+<ul>
+<li>为什么哈希冲突常用链表？</li>
+</ul>
+<p>答：<br>1.解析什么事哈希冲突？</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">哈希表10个位置</span><br><span class="line">0 1 2 3 4 5 6 7 8 9</span><br><span class="line"></span><br><span class="line">现在：</span><br><span class="line">hash(A)=3;</span><br><span class="line">hash(B)=3;</span><br><span class="line">此时两个数据都想要放到位置3，必然会导致冲突；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2.冲突的本质原因？</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">数据无限多；</span><br><span class="line">但是数组空间有限个；</span><br><span class="line">例如：字符串无限个----&gt;哈希表1024个桶；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解决方案：拉链法（其中一个解决方案，并非最佳）</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">原来：3-&gt;A</span><br><span class="line"></span><br><span class="line">冲突后：3-&gt;A-&gt;B</span><br><span class="line"></span><br><span class="line">再次冲突：3-&gt;A-&gt;B-&gt;C</span><br><span class="line"></span><br><span class="line">本质：在其中一个桶后面再挂一条链表；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3.使用链表的原因：链表适合动态增加元素；</p>
+<ul>
+<li>为什么浏览器前进后退可以用双链表？</li>
+</ul>
+<p>答：由于浏览器的前进后退需要能找到前后页面的信息，而双链表可以实现此（前指针域可找到上一个页面的信息，而后指针域则可以找到下一个页面）；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/" data-id="cuidtbz7AKIpfJZGjGiDf-bYg" data-title="数据结构-链表" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/05/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据结构问题思考方向</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9B%E4%B8%AA%E6%96%B9%E9%9D%A2%EF%BC%9A%E6%9C%AC%E8%B4%A8%EF%BC%8C%E8%AE%BE%E8%AE%A1%EF%BC%8C%E5%AE%9E%E6%96%BD%EF%BC%8C%E5%BA%94%E7%94%A8/" rel="tag">四个方面：本质，设计，实施，应用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%9B%9B%E4%B8%AA%E6%96%B9%E9%9D%A2%EF%BC%9A%E6%9C%AC%E8%B4%A8%EF%BC%8C%E8%AE%BE%E8%AE%A1%EF%BC%8C%E5%AE%9E%E6%96%BD%EF%BC%8C%E5%BA%94%E7%94%A8/" style="font-size: 10px;">四个方面：本质，设计，实施，应用</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">May 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/">数据结构-链表</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91/">数据结构问题思考方向</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E6%A6%82%E8%BF%B0/">数据结构的概述</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8%EF%BC%88%E6%95%B0%E7%BB%84%EF%BC%89%E2%80%9C/">数据结构---顺序表（数组）</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/">数据结构--顺序表</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
