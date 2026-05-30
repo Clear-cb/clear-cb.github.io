@@ -71,6 +71,95 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据结构-栈" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/" class="article-date">
+  <time class="dt-published" datetime="2026-05-24T03:45:47.000Z" itemprop="datePublished">2026-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/">数据结构-栈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本质思考"><a href="#本质思考" class="headerlink" title="本质思考"></a>本质思考</h2><ul>
+<li>为什么栈只能后进先出？</li>
+</ul>
+<p>答：底部固定不变，类似一个瓶子，只能从上方出来<br>理解为：访问权限被设计为单端操作结构</p>
+<ul>
+<li>为什么不能从中间取元素？</li>
+</ul>
+<p>答：由于先后顺序固定，只能从最上方取出<br>栈的设计目标就是限制访问路径，只维护一个栈顶指针top（不是不能，但是设计上不提供此功能）</p>
+<ul>
+<li>top为什么重要？</li>
+</ul>
+<p>答：由此知道栈目前的顶部在哪里，以便插入或者删除数据（top作为当前可操作的唯一入口）</p>
+<ul>
+<li>为什么函数调用天然是栈？</li>
+</ul>
+<p>答：函数调用最主要的是：嵌套执行结构+返回地址保存</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">每次调用函数，都需要保存：</span><br><span class="line">1.返回地址</span><br><span class="line">2.局部变量</span><br><span class="line">3.参数信息</span><br><span class="line">注：后调的函数必须先返回</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="递归思考"><a href="#递归思考" class="headerlink" title="递归思考"></a>递归思考</h2><ul>
+<li>为什么递归离不开栈？</li>
+</ul>
+<p>答：由于递归需要从第一步不断入栈，直到最后一步，在从最后出栈依次进行运算或者解决问题</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">每次递归调用-&gt;压栈一个函数帧</span><br><span class="line">每次返回-&gt;出栈一个函数帧</span><br><span class="line"></span><br><span class="line">本质：隐式栈结构</span><br></pre></td></tr></table></figure>
+
+<h4 id="！！"><a href="#！！" class="headerlink" title="！！"></a>！！</h4><ul>
+<li>递归爆栈是什么意思？</li>
+</ul>
+<p>答：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">定义：递归调用层数过深，导致系统栈空间耗尽</span><br><span class="line"></span><br><span class="line">原因：</span><br><span class="line">1.每次递归都会占用栈帧</span><br><span class="line">2.栈空间有限</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">stack overflow</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么递归本质是函数不断入栈？</li>
+</ul>
+<p>答：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">递归本质：函数不断调用自身，每次调用都会生成新的栈帧并压入调用栈</span><br><span class="line"></span><br><span class="line">直到：</span><br><span class="line">1.递归终止条件触发</span><br><span class="line">2.再逐层出栈返回</span><br><span class="line"></span><br><span class="line">本质：先压栈，后回溯</span><br></pre></td></tr></table></figure>
+
+<h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><ul>
+<li>为什么括号匹配用栈？</li>
+</ul>
+<p>答：由于匹配时，总是将左边括号压入栈中，而右括号和最后一个入栈的左括号配对，依次进行匹配</p>
+<p>总结：<br>1.左括号需要“暂存等待匹配”<br>2.最近的左括号必须优先匹配右括号<br>3.满足LIFO结构</p>
+<ul>
+<li>为什么撤销操作常用栈？</li>
+</ul>
+<p>答：撤销需要返回上一步操作，我们可以通过入栈的方式保存之前的操作，在撤销时又进行出栈操作</p>
+<p>总结：<br>撤销本质：历史状态的逆序回退</p>
+<p>栈合适的原因：<br>1.每次操作压入栈<br>2.撤销时弹出最近操作</p>
+<ul>
+<li>为什么浏览器历史记录可以用栈？</li>
+</ul>
+<p>答：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">总结：</span><br><span class="line">1.当前页面之后访问的页面会覆盖“前进路径”</span><br><span class="line">2.返回操作是逆序访问历史</span><br><span class="line"></span><br><span class="line">注：在浏览器中由于支持前进和后退，因此，在浏览器中实际上是使用的两个栈；</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/" data-id="cuid2inOT5X-k7Qj50fK4hyOZ" data-title="数据结构-栈" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-数据结构-链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/" class="article-date">
@@ -931,6 +1020,10 @@
       <ul>
         
           <li>
+            <a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/">数据结构-栈</a>
+          </li>
+        
+          <li>
             <a href="/2026/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/">数据结构-链表</a>
           </li>
         
@@ -944,10 +1037,6 @@
         
           <li>
             <a href="/2026/05/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8%EF%BC%88%E6%95%B0%E7%BB%84%EF%BC%89%E2%80%9C/">数据结构---顺序表（数组）</a>
-          </li>
-        
-          <li>
-            <a href="/2026/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8/">数据结构--顺序表</a>
           </li>
         
       </ul>
