@@ -71,6 +71,112 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/31/python%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="dt-published" datetime="2026-05-31T11:31:59.000Z" itemprop="datePublished">2026-05-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/05/31/python%E5%9F%BA%E7%A1%80/">python基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>1.跳过空格：<br>  a,b&#x3D;map(int,input().split())</p>
+<p>2.字符&#x2F;字符串输入：<br>  a&#x3D;input()—永远输入的是字符串</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><h3 id="转换（大小写，字符，ASCII）"><a href="#转换（大小写，字符，ASCII）" class="headerlink" title="转换（大小写，字符，ASCII）"></a>转换（大小写，字符，ASCII）</h3><ul>
+<li><p>转大写<br>s&#x3D;input()<br>print(s.upper())</p>
+</li>
+<li><p>转小写<br>s&#x3D;input()<br>print(s.lower())</p>
+</li>
+<li><p>首字母转大写<br>s&#x3D;input()<br>print(s.capitalize())</p>
+</li>
+<li><p>字符-&gt;ASCII<br>print(ord(‘A’))</p>
+</li>
+<li><p>ASCII-&gt;字符<br>print(chr(65))</p>
+</li>
+</ul>
+<p>注：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">总结：</span><br><span class="line">upper，lower，captialize，ord，chr</span><br><span class="line"></span><br><span class="line">常见的：</span><br><span class="line">A：65   a：97    </span><br><span class="line">Z：90   z：122</span><br><span class="line">0：48   9：57</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="判断类型"><a href="#判断类型" class="headerlink" title="判断类型"></a>判断类型</h3><ul>
+<li><p>是否为数字<br>print(a.issdigit())</p>
+</li>
+<li><p>是否为字母<br>print(a.isalpha())</p>
+</li>
+<li><p>是否为字母或数字<br>print(a.isalnum)</p>
+</li>
+<li><p>是否为小写<br>print(a,islower())</p>
+</li>
+<li><p>是否为大写<br>print(a.isupper())</p>
+</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">总结：</span><br><span class="line">isdigit，isalpha，isalnum，islower，isupper</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>例题：<br>输入一个123.4，输出4.321</p>
+<p>a&#x3D;input()<br>print(a[::-1])</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">格式：</span><br><span class="line">a[start:end:step]</span><br><span class="line"></span><br><span class="line">含义:</span><br><span class="line">从start开始，</span><br><span class="line">到end结束（不包含end）</span><br><span class="line">每次走step步</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<p>a&#x3D;”abcdef”</p>
+<ul>
+<li><p>a[1:4]<br>表示：从下标1开始，至下标4结束，不包含4<br>输出 “bcd”</p>
+</li>
+<li><p>a[::2]<br>表示：从头开始，到尾结束，每次跳两格<br>输出 “ace”</p>
+</li>
+<li><p>a[::-1]<br>表示：start&#x3D;空；end&#x3D;空，step&#x3D;-1<br>   从最后开始，向前走，每次走1格，直到最前面<br>输出：”fedcba”</p>
+</li>
+<li><p>a[-1]<br>表示：查看最后一个字符</p>
+</li>
+<li><p>判断回文串<br>s&#x3D;input()</p>
+</li>
+</ul>
+<p>if s&#x3D;&#x3D;s[::-1]:<br>    print(“yes”)</p>
+<p>else:<br>    print(“no”)</p>
+<h3 id="保留小数"><a href="#保留小数" class="headerlink" title="保留小数"></a>保留小数</h3><p>保留两位小数</p>
+<p>1.round(num，2)</p>
+<p>2.print(f”{num1:.3f}”)</p>
+<h3 id="向下取整"><a href="#向下取整" class="headerlink" title="向下取整"></a>向下取整</h3><ol>
+<li></li>
+</ol>
+<p>import math<br>print(math.floor(3.9))</p>
+<p>输出：3</p>
+<p>2.int()<br>对于正数来说:<br>print(int(3.9))</p>
+<p>注意：floor&#x3D;往左边最近的整数</p>
+<p>所以对于负数来说：<br>print(int(-3.9))<br>—&gt;-3</p>
+<p>print(math.floor(-3.9))<br>—&gt;-4</p>
+<h3 id="向上取整"><a href="#向上取整" class="headerlink" title="向上取整"></a>向上取整</h3><p>import math<br>math.ceil(3.1)</p>
+<p>输出：4</p>
+<h3 id="补前导零"><a href="#补前导零" class="headerlink" title="补前导零"></a>补前导零</h3><p>eg：<br>h&#x3D;7；m&#x3D;8<br>要求输出：07:08</p>
+<p>print(f”{h:02d}”)</p>
+<p>注：宽度至少两位<br>1.不足两位，前面补一位；<br>2.超过两位，不管</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/31/python%E5%9F%BA%E7%A1%80/" data-id="cuid6k1g0w2WvqLY7ps-TA99I" data-title="python基础" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-数据结构-栈" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/" class="article-date">
@@ -924,58 +1030,12 @@
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/10/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-05-10T11:55:45.178Z" itemprop="datePublished">2026-05-10</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/10/hello-world/" data-id="cuidCYr25H_k_IqwnubCU_nB1" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -1020,6 +1080,10 @@
       <ul>
         
           <li>
+            <a href="/2026/05/31/python%E5%9F%BA%E7%A1%80/">python基础</a>
+          </li>
+        
+          <li>
             <a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/">数据结构-栈</a>
           </li>
         
@@ -1033,10 +1097,6 @@
         
           <li>
             <a href="/2026/05/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E6%A6%82%E8%BF%B0/">数据结构的概述</a>
-          </li>
-        
-          <li>
-            <a href="/2026/05/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%A1%BA%E5%BA%8F%E8%A1%A8%EF%BC%88%E6%95%B0%E7%BB%84%EF%BC%89%E2%80%9C/">数据结构---顺序表（数组）</a>
           </li>
         
       </ul>
